@@ -222,6 +222,7 @@ function App() {
                 src={product.artwork.blob}
                 alt=""
                 style={{ opacity: isDrag ? 0 : 1 }}
+                draggable={false}
               />
             </Rnd>
           </div>
@@ -269,7 +270,8 @@ function App() {
                   };
                   setProduct(newProduct);
                 }
-                setIsDrag(false);
+                // setIsDrag(false);
+                setTimeout(() => setIsDrag(false), 100);
               }}
               onResizeStop={(e, dir, eRef, delta, pos) => {
                 if (rndDraggableRef.current && rndPreviewRef.current) {
@@ -286,7 +288,7 @@ function App() {
                   };
                   setProduct(newProduct);
                 }
-                setIsDrag(false);
+                setTimeout(() => setIsDrag(false), 100);
               }}
               className={isShowComponent ? "border border-gray-200" : ""}
             >
@@ -296,6 +298,7 @@ function App() {
                 style={{ opacity: isDrag ? 1 : 0 }}
                 ref={ref}
                 onClick={() => setIsShowComponent(true)}
+                draggable={false}
               />
             </Rnd>
           </div>
